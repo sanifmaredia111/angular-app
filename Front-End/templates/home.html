@@ -1,0 +1,30 @@
+<div ng-controller="user-list">
+	<h2>List of Users</h2><hr>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well well-sm">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="item in userlist | itemsPerPage: pageSize" current-page="currentPage">
+							<td>{{item.name}}</td>
+							<td>{{item.email}}</td>
+							<td><button type="button" class="btn btn-primary" ng-click="editUser($index)">Edit</button></td>
+							<td><button type="button" class="btn btn-danger" ng-click="deleteUser($index)">Delete</button></td>
+						</tr>
+					</tbody>
+					</table>
+					<dir-pagination-controls boundary-links="true"  template-url="templates/dirPagination.html"></dir-pagination-controls>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
